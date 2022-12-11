@@ -1,8 +1,8 @@
 const express  = require('express')
 const router = express.Router()
 const JOBDATA = require('../models/jobs')
-const jwtverify=require('../middlewares/jwtVerify')
-router.get('/getjob',jwtverify, async(req, res)=>{  // getting job
+const jwtVerifyerify=require('../middlewares/jwtVerify')
+router.get('/getjob',jwtVerify, async(req, res)=>{  // getting job
     try {
         let jobs = await JOBDATA.find()
         res.send(jobs)
@@ -21,7 +21,7 @@ router.get('/getempjob', async(req, res)=>{  // getting job by employer
         console.log('get error:', error);
     }
 })
-router.get('/getempjobs',jwtverify, async(req, res)=>{  // getting job by employer
+router.get('/getempjobs',jwtVerify, async(req, res)=>{  // getting job by employer
     try {
         console.log('token from frontend',req.headers.authorization)
     let jobs = await JOBDATA.find({postedBy:"employe"})
