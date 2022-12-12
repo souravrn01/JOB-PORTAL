@@ -17,8 +17,9 @@ app.use('/api', api)
 
 app.use(express.static('./dist/frontend'));
 
-//  app.use('/uploads', express.static('uploads'))
- app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+ app.use('/uploads', express.static('uploads'))
+ 
+//  app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.get('/download/:resume', (req,res)=>{
     console.log(res)
